@@ -3,12 +3,14 @@ body {
   margin: 0;
   padding: 0;
 }
+
 .header {
   text-align: center;
   padding: 20px;
   background-color: #007BFF;
   color: white;
 }
+
 .cards-container {
   display: flex;
   justify-content: center;
@@ -16,6 +18,7 @@ body {
   gap: 20px;
   padding: 20px;
 }
+
 .card {
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -23,48 +26,88 @@ body {
   text-align: center;
   width: 200px;
   cursor: pointer;
-  transition: transform 0.3s;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
+
 .card:hover {
-  transform: scale(1.05);
+  transform: translateY(-5px); /* Lift effect */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
 #details-section {
   display: flex;
+  flex-wrap: wrap; /* Ensure responsiveness on smaller screens */
   justify-content: space-between;
+  gap: 20px;
   padding: 20px;
 }
+
 #map {
-  width: 50%;
-  height: 500px;
+  flex: 1;
+  width: 100%; /* Full width of the parent */
+  height: 400px; /* Map height */
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  min-width: 300px; /* For smaller screen adaptability */
 }
+
+.marker {
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 30px;
+  background-color: #007BFF; /* Marker color */
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
 .weather-details {
-  width: 45%;
+  flex: 1;
+  min-width: 300px; /* Minimum width for responsiveness */
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 8px;
   text-align: center;
-  position: relative;
 }
+
 .weather-details h3 {
   margin-bottom: 10px;
 }
+
 .slideshow {
   margin-top: 20px;
   position: relative;
   height: 200px;
   overflow: hidden;
 }
+
 .slideshow img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  max-width: 100%;
+  height: auto; /* Adjusts to container */
+  object-fit: cover; /* Ensures the image covers the container */
   position: absolute;
   top: 0;
   left: 0;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
+  opacity: 0; /* Hidden initially */
+  transition: opacity 1s ease-in-out; /* Smooth fade effect */
 }
+
 .slideshow img.active {
-  opacity: 1;
+  opacity: 1; /* Show active image */
+}
+
+.mapboxgl-control-container {
+  z-index: 2; /* Ensure controls appear above other elements */
+}
+
+@media screen and (max-width: 768px) {
+  #details-section {
+    flex-direction: column; /* Stack map and weather section */
+    align-items: center;
+  }
+
+  #map, .weather-details {
+    width: 100%; /* Full width on smaller screens */
+  }
 }
