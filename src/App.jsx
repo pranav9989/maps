@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import "./TravelWebsite.css";
-import { initializeMap, attachCityListeners } from "./travelWebsiteLogic"; // Correct import
+import { initializeMap, attachCityListeners } from "./travelWebsiteLogic";
+import Card from './components/Card';
 
 function App() {
   const mapRef = useRef(null); // Create a ref to store the map instance
@@ -19,22 +20,10 @@ function App() {
       </div>
 
       <div className="cards-container">
-        <div className="card" data-city="Paris">
-          <h3>Paris</h3>
-          <p>City of Light</p>
-        </div>
-        <div className="card" data-city="London">
-          <h3>London</h3>
-          <p>The Big Smoke</p>
-        </div>
-        <div className="card" data-city="Mumbai">
-          <h3>Mumbai</h3>
-          <p>The City That Never Sleeps</p>
-        </div>
-        <div className="card" data-city="Delhi">
-          <h3>Delhi</h3>
-          <p>Heart of India</p>
-        </div>
+        <Card cityName = {"Paris"} cityQuote={"City of Light"} />
+        <Card cityName = {"London"} cityQuote={"The Big Smoke"} />
+        <Card cityName = {"Mumbai"} cityQuote={"The City That Never Sleeps"} />
+        <Card cityName = {"Delhi"} cityQuote={"Heart Of India"} />
       </div>
 
       <div id="details-section">
