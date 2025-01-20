@@ -36,21 +36,21 @@ body {
 
 #details-section {
   display: flex;
-  flex-wrap: wrap; /* Ensure responsiveness on smaller screens */
+  flex-wrap: nowrap; /* Prevent wrapping for proper alignment */
   justify-content: space-between;
+  align-items: stretch; /* Ensure both map and weather div align perfectly */
   gap: 20px;
   padding: 20px;
 }
 
 #map {
   flex: 1;
-  width: 100%; /* Full width of the parent */
-  height: 400px; /* Map height */
+  height: 500px; /* Uniform height */
   position: relative;
   overflow: hidden;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  min-width: 300px; /* For smaller screen adaptability */
+  min-width: 300px; /* Minimum width for adaptability */
 }
 
 .marker {
@@ -64,11 +64,13 @@ body {
 
 .weather-details {
   flex: 1;
-  min-width: 300px; /* Minimum width for responsiveness */
+  min-width: 300px; /* Ensure responsiveness */
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 8px;
   text-align: center;
+  height: 460px; /* Match the height of the map */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Uniform appearance */
 }
 
 .weather-details h3 {
@@ -78,19 +80,25 @@ body {
 .slideshow {
   margin-top: 20px;
   position: relative;
-  height: 200px;
+  height: 350px; /* Larger height for better image display */
   overflow: hidden;
+  display: flex;
+  justify-content: center; /* Center images horizontally */
+  align-items: center; /* Center images vertically */
+  background-color: #f9f9f9; /* Light background for better visibility */
+  border-radius: 8px;
 }
 
 .slideshow img {
-  max-width: 100%;
-  height: auto; /* Adjusts to container */
-  object-fit: cover; /* Ensures the image covers the container */
+  width: 100%; /* Force the image to fill the container's width */
+  height: 300px; /* Force the image to fill the container's height */
+  object-fit: cover; /* Fill the container, even if cropping is necessary */
   position: absolute;
   top: 0;
   left: 0;
   opacity: 0; /* Hidden initially */
   transition: opacity 1s ease-in-out; /* Smooth fade effect */
+  border-radius: 10px;
 }
 
 .slideshow img.active {
@@ -107,7 +115,13 @@ body {
     align-items: center;
   }
 
-  #map, .weather-details {
+    #map,
+  .weather-details {
     width: 100%; /* Full width on smaller screens */
+    height: auto; /* Adjust height naturally */
+  }
+
+  .slideshow {
+    height: 250px; /* Adjust slideshow height for smaller screens */
   }
 }

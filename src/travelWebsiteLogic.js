@@ -20,7 +20,7 @@ const cities = {
   Mumbai: {
     coords: [72.8777, 19.076],
     bestTime: "October to February",
-    images: ["mumbai1.jpeg", "mumbai2.jpeg"],
+    images: ["mumbai1.jpeg", "mumbai2.jpeg", "mumbai3.jpeg", "mumbai4.jpeg", "mumbai5.jpeg", "mumbai6.jpeg", "mumbai7.jpeg"],
   },
   Delhi: {
     coords: [77.1025, 28.7041],
@@ -116,7 +116,7 @@ export const updateSlideshow = (images) => {
 
   images.forEach((image, index) => {
     const imgElement = document.createElement("img");
-    imgElement.src = `./images/${image}`;
+    imgElement.src = `/src/assets/${image}`;
     if (index === 0) imgElement.classList.add("active"); // Add 'active' class only for the first image
     slideshow.appendChild(imgElement);
   });
