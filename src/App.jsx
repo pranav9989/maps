@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import "./TravelWebsite.css";
 import { initializeMap, attachCityListeners } from "./travelWebsiteLogic";
 import Card from './components/Card';
+import Navbar from "./components/Navbar";
 
 function App() {
   const mapRef = useRef(null); // Create a ref to store the map instance
@@ -15,6 +16,7 @@ function App() {
 
   return (
     <div>
+      <Navbar />
       <div className="header">
         <h1>Explore Cities</h1>
       </div>
